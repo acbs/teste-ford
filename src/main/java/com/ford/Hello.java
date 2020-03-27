@@ -1,5 +1,8 @@
 package com.ford;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +14,8 @@ public class Hello {
 
 	@GetMapping
 	public ResponseEntity<String> find() {
-		return ResponseEntity.ok().body("Teste Ford");
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		return ResponseEntity.ok().body("Teste Ford: " + df.format(new Date()));
 	}
 
 }
